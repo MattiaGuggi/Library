@@ -1,6 +1,12 @@
 
 class Utente:
-    def __init__(self,nome,libri_prestiti):
+    def __init__(self,nome):
         self.nome = nome
-        self.libri_prestiti = libri_prestiti
-        
+        self.libri_prestiti = []
+    
+    #Metodo per aggiungere un libro alla lista di quelli in prestito
+    def prendi_libro(self,libro):
+        self.libri_prestiti.append(libro)
+    
+    def restituisci_libro(self,libroDaTogliere):
+        self.libri_prestiti.remove(libroDaTogliere)
