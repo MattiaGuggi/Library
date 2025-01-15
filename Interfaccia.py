@@ -30,13 +30,25 @@ class Interfaccia:
         titolo = input("Inserisci il titolo del libro: ")
         autore = input("Inserisci l'autore del libro: ")
         data_pubblicazione = int(input("Inserisci la data di pubblicazione del libro"))
+        libro = Libro(titolo, autore, data_pubblicazione)
 
     def aggiungi_utente(self):
         nome = input("Inserisci il nome dell'utente: ")
         libri_prestiti = []
+        autore = Autore(nome, libri_prestiti)
 
     def cerca_libro(self):
         titolo = input("Inserisci il titolo del libro che vuoi cercare:")
+
+    def prendi_in_presto(self):
+        titolo = input("Inserisci il titolo del libro: ")
+        autore = input("Inserisci l'autore del libro: ")
+        data_pubblicazione = int(input("Inserisci la data di pubblicazione del libro"))
+    
+    def restituisci_libro(self):
+        titolo = input("Inserisci il titolo del libro: ")
+        autore = input("Inserisci l'autore del libro: ")
+        data_pubblicazione = int(input("Inserisci la data di pubblicazione del libro"))
 
 
     
