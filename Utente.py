@@ -4,9 +4,4 @@ class Utente:
         self.nome = nome
         self.libri_prestiti = []
     
-    #Metodo per aggiungere un libro alla lista di quelli in prestito
-    def prendi_libro(self,libro):
-        self.libri_prestiti.append(libro)
-    
-    def restituisci_libro(self,libroDaTogliere):
-        self.libri_prestiti.remove(libroDaTogliere)
+   
