@@ -8,6 +8,7 @@ class Interfaccia:
         self.biblioteca = Biblioteca()
 
     def menu_principale(self):
+        self.biblioteca.crea_libri()
         while True:
             print("\nMenu principale:")
             print("1)Aggiungi un nuovo libro")
@@ -39,16 +40,16 @@ class Interfaccia:
         autore = input("Inserisci l'autore del libro: ")
         anno_pubblicazione = int(input("Inserisci l'anno di pubblicazione del libro: "))
         libro = Libro(titolo, autore, anno_pubblicazione)
-        self.biblioteca.aggiungi_libro(self.biblioteca, libro)
+        self.biblioteca.aggiungi_libro(libro)
 
     def aggiungi_utente(self):
         nome = input("Inserisci il nome dell'utente: ")
         utente = Utente(nome)
-        self.biblioteca.aggiungi_utente(self.biblioteca, utente)
+        self.biblioteca.aggiungi_utente(utente)
 
     def cerca_libro(self):
         titolo = input("Inserisci il titolo del libro che vuoi cercare: ")
-        trovato = self.biblioteca.cerca_libro(self.biblioteca, titolo)
+        trovato = self.biblioteca.cerca_libro(titolo)
         if trovato:
             print("Il libro è stato trovato.")
         else:
@@ -64,7 +65,7 @@ class Interfaccia:
         for utente in self.biblioteca.lista_utenti:
             if utente.nome == nome_utente:
                 trovato = True
-                preso = self.biblioteca.prestito(self.biblioteca, utente, titolo, autore, anno_pubblicazione)
+                preso = self.biblioteca.prestito(utente, libro)
                 if preso:
                     print("Libro preso in prestito")
                 else:
@@ -83,7 +84,7 @@ class Interfaccia:
         for utente in self.biblioteca.lista_utenti:
             if utente.nome == nome_utente:
                 trovato = True
-                restituito = self.biblioteca.restituzione(self.biblioteca, utente, titolo, autore, anno_pubblicazione)
+                restituito = self.biblioteca.restituzione(utente, libro)
                 if restituito:
                     print("Libro restituito")
                 else:
