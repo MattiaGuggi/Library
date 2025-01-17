@@ -37,19 +37,20 @@ class Biblioteca:
             
         return False
     
-    def prestito(self, utente, title, author, year):
-        for libro in self.lista_libri:
-            if libro.titolo == title and libro.autore == author and libro.anno_pubbl == year:
+    def prestito(self, utente, libro):
+        for book in self.lista_libri:
+            if libro.titolo == book.titolo and libro.autore == book.autore and libro.anno_pubbl == book.anno.pubbl:
                 self.lista_libri.remove(libro)
                 utente.prendi_libro(libro)
                 return True
             
         return False
     
-    def restituzione(self, utente, title, author, year):
-        print('Restituisci')
-        for libro in self.lista_libri:
-            if libro.titolo == title and libro.autore == author and libro.anno_pubbl == year:
+    def restituzione(self, utente, libro):
+        lista_libri_utente = utente.libri_prestiti
+        
+        for book in lista_libri_utente:
+            if libro.titolo == book.titolo and libro.autore == book.autore and libro.anno_pubbl == book.anno_pubbl:
                 self.lista_libri.append(libro)
                 utente.restituisci_libro(libro)
                 return True
